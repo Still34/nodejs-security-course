@@ -1,0 +1,11 @@
+{
+  "name": "npm-course-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "Still Hsu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
