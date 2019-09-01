@@ -7,13 +7,11 @@ let responseHeaderConfig = require('./configs/responseHeaderConfig')
 responseHeaderConfig(app);
 
 app.get('/', (req, res) => {
-    // Instant XSS
-    // http://localhost:3000/?input=%3Cscript%3Ealert(1)%3C/script%3E
-    let input = req.query.input;
-    // Unsanitized string
-    res.send(input);
-    // Sanitized string
-    // res.send(purify.sanitize(input));
+    res.sendFile('index.html');
+});
+
+app.get('/profile', (req, res) => {
+
 });
 
 app.listen(3000, function () {

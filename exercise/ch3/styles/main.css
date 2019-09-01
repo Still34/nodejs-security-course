@@ -1,0 +1,15 @@
+
+.background {
+    background-blend-mode: difference;
+    filter: saturate(50%);
+    height: 100%;
+    background-size: cover;
+  }
+  
+  .content {
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
