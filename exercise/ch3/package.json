@@ -1,0 +1,16 @@
+{
+  "name": "ch3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dompurify": "^1.0.11",
+    "express": "^4.17.1",
+    "helmet": "^3.20.1",
+    "jsdom": "^15.1.1",
+    "particles.js": "^2.0.0",
+    "xss-filters": "^1.2.7"
+  }
+}
