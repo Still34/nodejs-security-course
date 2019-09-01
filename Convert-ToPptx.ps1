@@ -51,7 +51,7 @@ process {
         Set-Location $parent
 
         $outputPath = [System.IO.Path]::Combine($Output, "$($file.BaseName).pptx")
-        pandoc $file -o $outputPath
+        pandoc $file -o $outputPath --slide-level 2
         
         if ($LASTEXITCODE -eq 0 -and $RunAfterExport) {
             Start-Process $outputPath
