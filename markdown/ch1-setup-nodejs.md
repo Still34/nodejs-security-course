@@ -8,7 +8,7 @@ aspectratio: 169
 
 ## Node.js 是什麼?
 
-- 一套基於 Google Chrome 的 V8 JavaScript 引擎所做的 JavaScript 執行引擎
+- 一套基於 Google Chrome 的 V8 引擎所做的 JavaScript 執行引擎
 - 由非同步事件 (Asynchronous Events) 作為基底
 - 具彈性且易部屬
 - 相較於傳統網頁程式而言較輕巧
@@ -20,10 +20,11 @@ aspectratio: 169
 
 - Windows
   - 透過 nodist
-    - 可隨時透過此工具更改Node.js版本
+    - 可隨時透過此工具更改 Node.js 版本
     - https://github.com/marcelklehr/nodist
   - 透過 choco
     - `choco install nodejs`
+    - https://chocolatey.org
 - Linux
   - 透過 `apt`/`pacman`
     - `apt install nodejs`
@@ -44,11 +45,11 @@ aspectratio: 169
 
 - NPM 專案主核心之一
 - 包含專案的詳細資訊如程式作者、所需套件等等的清單
-  - 類似於 .NET 程式的 `*.csproj*`
+  - 類似於 .NET 程式的 `*.csproj`
 - 範例如下
 ```json
 {
-  "name": "MyPackageName",
+  "name": "my-package-name",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
