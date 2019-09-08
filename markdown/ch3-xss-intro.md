@@ -14,6 +14,10 @@ aspectratio: 169
 - XSS 攻擊通常都是攻擊者透過具有漏洞的網頁程式來轉發惡意程式碼。
   - 這些攻擊之所以能成功大多是因為開發者疏忽，任意聽信於使用者所提供的字串。
 - XSS 攻擊為 OWASP 2017 年報導中第七常見的網頁漏洞攻擊。
+- 分為以下
+  - Stored XSS
+  - Reflected XSS
+  - DOM-based XSS
 
 ## XSS 種類 - Stored XSS
 
@@ -33,10 +37,6 @@ aspectratio: 169
     - e.g. `https://victim.corp/search?q=<script>alert('hi!')</script>`
 
 ![Reflected XSS 攻擊流程](img/ch3-reflected-xss.png)
-
-## XSS 種類 - DOM-based XSS
-
-- todo
 
 # Node.js XSS 防禦措施前言
 
