@@ -1,10 +1,6 @@
 [CmdletBinding()]
 param(
-
 )
-begin{
+process {
     .\Convert-ToPptx.ps1 -Path .\markdown -Output .\export
-}
-process{
-
 }

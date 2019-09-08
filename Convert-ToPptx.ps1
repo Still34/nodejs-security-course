@@ -53,8 +53,11 @@ process {
         $outputPath = [System.IO.Path]::Combine($Output, "$($file.BaseName).pptx")
         pandoc $file -o $outputPath --slide-level 2
         
-        if ($LASTEXITCODE -eq 0 -and $RunAfterExport) {
-            Start-Process $outputPath
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host File has been written: $outputPath
+            if ($RunAfterExport){
+                Start-Process $outputPath
+            }
         }
     }
 }
