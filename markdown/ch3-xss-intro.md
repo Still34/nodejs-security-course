@@ -54,7 +54,7 @@ aspectratio: 169
 - 安裝
   - `npm install helmet --save`
 
-### Helmet 使用
+## Helmet 使用
 
 ```js
 let express = require('express');
@@ -79,7 +79,7 @@ app.use(helmet.xssFilter());
 - DOMPurify
 - HTML 跳離
 
-### DOMPurify
+## DOMPurify
 
 - 清理 HTML 字串
   - 降低 XSS 可能性
@@ -87,7 +87,9 @@ app.use(helmet.xssFilter());
   - 有持續進行的 Bug Bounty 計畫
   - 找到漏洞並修補的頻率較高
 
-#### DOMPurify 使用
+---
+
+- DOMPurify範例
 
 ```js
 const createDOMPurify = require('dompurify');
@@ -101,7 +103,7 @@ const DOMPurify = createDOMPurify(window);
 const clean = DOMPurify.sanitize(dirty);
 ```
 
-### HTML 跳離
+## HTML 跳離
 
 - 可透過 JavaScript 的 `replace` 將敏感字元跳脫為無害的字元
 - e.g.
@@ -122,7 +124,7 @@ let escapedInput = sanitizedInput.
   - 透過這點，即可以降低 XSS 成功的風險性
 - CSP 並不是萬能法寶! 只是其中一道防線!
 
-### 可透過 CSP 控制來源的物件種類
+## 可透過 CSP 控制來源的物件種類
 
 - 詳細列表請見 https://content-security-policy.com/
 
@@ -136,12 +138,12 @@ let escapedInput = sanitizedInput.
 | 多媒體   | `media-src`   |
 | 表單動作 | `form-action` |
 
-### 透過 Helmet 設定 CSP
+## 透過 Helmet 設定 CSP
 
 ```js
 app.use(helmet.contentSecurityPolicy({
     directives:{
-        // 相等於 Content-Security-Policy: script-src 'self' 'unsafe-inline' code.jquery.com;
+        // 相等於 Content-Security-Policy: script-src 'self' code.jquery.com;
         scriptSrc: ["'self'", "code.jquery.com"]
     }
 }));
