@@ -12,7 +12,6 @@ module.exports = {
             replace(/</g, '&lt;').
             replace(/"/g, '&quot;').
             replace(/'/g, '&#039;');
-        console.log(escapedInput);
         return escapedInput;
     }
 }
