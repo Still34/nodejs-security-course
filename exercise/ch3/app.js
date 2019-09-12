@@ -8,14 +8,17 @@ let port = 3000;
 //      responseHeaderConfig(app);
 
 app.get('/', (req, res) => {
+    console.log(`[${Date.now()}] Connection received.`)
     // Instant XSS
     // http://localhost:3000/?input=%3Cscript%3Ealert(1)%3C/script%3E
     let input = req.query.input;
     if (input) {
+        console.log(`Received user input:   ${input}`);
         // Unsanitized string
         let output = `You sent me '${input}'.`;
         // Sanitized string
-        // let output = `You sent me ${purify.sanitize(input)}.`;
+        // let sanitized = purify.sanitize(input);
+        // let output = `You sent me ${sanitized}.`;
         res.send(output);
     } else {
         res.send(`Send me something with <a href='${req.protocol}://${req.hostname}:${port}/?input=Hello+World!'>this link</a>!`);
