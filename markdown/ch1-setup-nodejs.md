@@ -100,17 +100,3 @@ aspectratio: 169
 | High (高)       | 須盡快處理         |
 | Moderate (中)   | 時間准許情況下處理 |
 | Low (低)        | 由擁有者自行決定   |
-
-## 範例
-
-```sh
-  High            Denial-of-Service Extended Event Loop Blocking
-
-  Package         qs
-
-  Dependency of   express
-
-  Path            express > connect > qs
-
-  More info       https://npmjs.com/advisories/28
-```
