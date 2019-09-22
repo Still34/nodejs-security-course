@@ -148,3 +148,27 @@ app.use(helmet.contentSecurityPolicy({
     }
 }));
 ```
+
+# 實際操作 Demo
+
+## 運行範例程式
+
+1. 開啟終端機
+2. 透過 `node app.js` 運行第三章底下的範例
+3. 瀏覽至 `http://localhost:3000/?input=sample`
+
+## 弱點
+
+- 如果更改使用者所提供的參數 `input`，使用者可造成 Reflective XSS。
+- 例如：`http://localhost:3000/?input=<script>alert(1)</script><b>Hello+World!</b>`
+
+![](img/ch3-demo-xss.png)
+
+## 弱點修補
+
+問題在於開發人員過於信賴使用者所提供的資料，因此，我們在回傳資料時需要非常小心，將敏感字串過濾。
+- DOMPurify
+  - 於 `validation/purify.js` 裡面，有進行呼叫 DOMPurify 以及將敏感字元替換的功能。
+  - 我們在 `app.js` 中即可呼叫我們所做的過濾方法，再回傳給用戶。
+- Helmet
+  - 在 `configs/responseHeaderConfig.js` 裡面，對 CSP 進行設定，進一步禁止in-line scripting執行。
