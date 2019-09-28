@@ -1,0 +1,18 @@
+{
+  "name": "chapter4-exercise",
+  "version": "1.0.0",
+  "description": "Chapter 4 exercise files for the NodeJS security course",
+  "main": "app.js",
+  "author": "Still Hsu",
+  "license": "MIT",
+  "dependencies": {
+    "dompurify": "^2.0.3",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "mariadb": "^2.1.1",
+    "morgan": "^1.9.1",
+    "sequelize": "^5.19.0",
+    "spectre.css": "^0.5.8"
+  }
+}

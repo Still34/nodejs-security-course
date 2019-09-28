@@ -1,0 +1,39 @@
+<head>
+    <title><%= title; %></title>
+    <%- include('css-setup') -%>
+</head>
+
+<body>
+    <%- include('header'); -%>
+    <div class="content container grid-md p-2">
+        <h1 class="text-center">
+            Employee Listing
+        </h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(typeof(userCollection) != 'undefined' && userCollection){ %>
+                <% }else{ %>
+                    <tr>
+                        <td>
+                            None
+                        </td>
+                        <td>
+                            None
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('footer'); -%>
+</body>

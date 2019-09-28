@@ -1,0 +1,59 @@
+<head>
+    <title><%= title; %></title>
+    <%- include('css-setup') -%>
+</head>
+
+<body>
+    <%- include('header'); -%>
+    <div class="content container grid-md p-2">
+        <form class="form-horizontal" method="POST">
+            <div class="register-prompt card">
+                <div class="card-image">
+                    <div class="img-responsive"></div>
+                </div>
+                <div class="card-header">
+                    <div class="card-title h5">Employee Registration Portal</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="col-3 col-sm-12">
+                            <label class="form-label" for="username">Username</label>
+                        </div>
+                        <div class="col-9 col-sm-12">
+                            <input required class="form-input" type="text" id="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-3 col-sm-12">
+                            <label class="form-label" for="password">Password</label>
+                        </div>
+                        <div class="col-9 col-sm-12">
+                            <input required class="form-input" type="password" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-3 col-sm-12">
+                            <label class="form-label" for="password-confirmation">Confirm Password</label>
+                        </div>
+                        <div class="col-9 col-sm-12">
+                            <input required class="form-input" type="password" id="password-confirmation" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-3 col-sm-12">
+                            <label class="form-label" for="email">Email</label>
+                        </div>
+                        <div class="col-9 col-sm-12">
+                            <input required class="form-input" type="Email" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="scripts/pass.js"></script>
+    <%- include('footer'); -%>
+</body>
