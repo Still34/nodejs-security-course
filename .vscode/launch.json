@@ -5,10 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "name": "PowerShell Launch Current File",
+            "type": "PowerShell",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\app.js"
+            "script": "${file}",
+            "args": [],
+            "cwd": "${file}"
         }
     ]
 }
