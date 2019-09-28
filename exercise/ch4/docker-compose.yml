@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - "./app:/src/app"
+    image: node:alpine
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_DATABASE=${DBNAME}
+      - MYSQL_USER=${DBUSER}
+      - MYSQL_PASSWORD=${DBPASSWORD}
+    networks:
+      default:
+      internal:
+  db:
+    image: mariadb
+    restart: always
+    networks:
+      internal:
+    volumes:
+      - .data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${DBNAME}
+      - MYSQL_USER=${DBUSER}
+      - MYSQL_PASSWORD=${DBPASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DBPASSWORD}
+networks:
+  default:
+  internal:
+    internal: true
