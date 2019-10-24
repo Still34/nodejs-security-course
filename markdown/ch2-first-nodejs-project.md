@@ -80,16 +80,18 @@ app.METHOD(PATH, HANDLER)
 
 - 於主頁中回應 `Hello World!`
 ```js
-app.get('/', function (req, res) {
+app.get('/', (req, res) =>{
   res.send('Hello World!')
-})
+});
 ```
 
-- 對 `/user` 路由發出 PUT 時的回應
+- 對 `/order` 路由發出 PUT 時的回應
 ```js
-app.put('/user', function (req, res) {
-  res.send('Got a PUT request at /user!')
-})
+app
+  .route('/order')
+  .put((req, res) => {
+    res.send('Received PUT request at /order/.');
+  });
 ```
 
 # 發送靜態檔案
