@@ -59,7 +59,6 @@ aspectratio: 169
 ```js
 let express = require('express');
 let helmet = require('helmet');
-
 let app = express();
 
 // 選項一：
@@ -94,8 +93,6 @@ app.use(helmet.xssFilter());
 ```js
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
-
-const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
 // dirty 為不可信任的字串
