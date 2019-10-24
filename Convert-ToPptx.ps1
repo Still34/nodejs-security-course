@@ -23,6 +23,8 @@ param (
     
 begin {
     $Output = Get-Item $Output
+    $CurrentPath = (Get-Location).Path
+    $Path = [System.IO.Path]::Combine($CurrentPath, $Path)
 
     if (-not (Get-Command pandoc)) {
         [System.IO.FileNotFoundException]::new("Pandoc is not installed.")

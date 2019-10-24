@@ -2,5 +2,5 @@
 param(
 )
 process {
-    .\Convert-ToPptx.ps1 -Path .\markdown -Output .\export
+    .\Convert-ToPptx.ps1 -Path "markdown" -Output "export"
 }
