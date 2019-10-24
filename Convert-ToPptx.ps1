@@ -18,7 +18,9 @@ param (
     [Parameter(Mandatory = $true)]
     $Output,
     [switch]
-    $RunAfterExport = $false
+    $RunAfterExport = $false,
+    [switch]
+    $Confirm = $false
 )
     
 begin {
@@ -53,7 +55,8 @@ process {
         Set-Location $parent
 
         $outputPath = [System.IO.Path]::Combine($Output, "$($file.BaseName).pptx")
-        if ([System.IO.File]::Exists($outputPath)) {
+        if ([System.IO.File]::Exists($outputPath) -and
+            $Confirm -ne $true) {
             $message = 'Target file already exists'
             $question = 'Are you sure you want to proceed? (If not, the target file will renamed accordingly)'
             $choices = '&Yes', '&No'
