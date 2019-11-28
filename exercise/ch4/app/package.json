@@ -6,14 +6,14 @@
   "author": "Still Hsu",
   "license": "MIT",
   "dependencies": {
-    "dompurify": "^2.0.3",
+    "dompurify": "^2.0.7",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
-    "helmet": "^3.21.1",
-    "mariadb": "^2.1.1",
+    "helmet": "^3.21.2",
+    "mariadb": "^2.1.2",
     "morgan": "^1.9.1",
-    "sequelize": "^5.19.0",
+    "sequelize": "^5.21.2",
     "spectre.css": "^0.5.8"
   }
 }

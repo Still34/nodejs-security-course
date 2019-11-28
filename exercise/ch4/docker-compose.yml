@@ -11,9 +11,9 @@ services:
     depends_on:
       - db
     environment:
-      - MYSQL_DATABASE=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASSWORD=${DBPASSWORD}
+      - MYSQL_DATABASE=nodejs-course
+      - MYSQL_USER=node
+      - MYSQL_PASSWORD=n0de-SC
     networks:
       default:
       internal:
@@ -25,10 +25,10 @@ services:
     volumes:
       - .data/mysql:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASSWORD=${DBPASSWORD}
-      - MYSQL_ROOT_PASSWORD=${DBPASSWORD}
+      - MYSQL_DATABASE=nodejs-course
+      - MYSQL_USER=node
+      - MYSQL_PASSWORD=n0de-SC
+      - MYSQL_ROOT_PASSWORD=n0de-SC
 networks:
   default:
   internal:
