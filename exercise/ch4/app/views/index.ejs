@@ -1,39 +1,18 @@
-<head>
-    <title><%= title; %></title>
-    <%- include('css-setup') -%>
-</head>
+<%- include('head'); -%>
 
 <body>
     <%- include('header'); -%>
-    <div class="content container grid-md p-2">
-        <h1 class="text-center">
-            Employee Listing
-        </h1>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>
-                        User
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <% if(typeof(userCollection) != 'undefined' && userCollection){ %>
-                <% }else{ %>
-                    <tr>
-                        <td>
-                            None
-                        </td>
-                        <td>
-                            None
-                        </td>
-                    </tr>
-                <% } %>
-            </tbody>
-        </table>
+    <div class="container content">
+        <div class="columns">
+            <div class="col-3">
+                <img src="../images/logo.jpg" class="img-responsive">
+            </div>
+            <div class="hero col-9 bg-dark">
+                <div class="hero-body">
+                    <h1>Login Portal</h1>
+                    <p>You've reached our secret login panel! Please login so you can access our sensitive data.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <%- include('footer'); -%>
 </body>

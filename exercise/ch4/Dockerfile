@@ -1,7 +1,7 @@
 FROM node:alpine
-RUN mkdir /src
-COPY app /src/app
-WORKDIR /src/app
+RUN apk --no-cache add --virtual builds-deps build-base python
+COPY app /root/app
+WORKDIR /root/app
+RUN rm /root/app/node_modules -rf
 RUN npm install
-EXPOSE 3000
 CMD node app.js

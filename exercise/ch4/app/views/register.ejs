@@ -1,15 +1,22 @@
-<head>
-    <title><%= title; %></title>
-    <%- include('css-setup') -%>
-</head>
+<%- include('head'); -%>
 
 <body>
     <%- include('header'); -%>
-    <div class="content container grid-md p-2">
+    <%if (typeof(nonce) !== 'undefined' && typeof(message) !== 'undefined' && typeof(failure) !== 'undefined'){%>
+    <script nonce=<%-nonce-%>> toastr.options = {"closeButton": true,"progressBar": true,"positionClass": "toast-bottom-full-width","showDuration": "10000","hideDuration": "1000","timeOut": "5000","extendedTimeOut": "1000","showEasing": "swing","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut", "escapeHtml": true}</script>
+    <%if (failure){%>
+    <script nonce=<%-nonce-%>> toastr["error"]('<%=message%>', "Failed")</script>
+    <%}else{%>
+    <script nonce=<%-nonce-%>> 
+    toastr["success"]('<%=message%>', "Success")
+    </script>
+    <%}%>
+    <%}%>
+    <div class='login-card container grid-lg'>
         <form class="form-horizontal" method="POST">
-            <div class="register-prompt card">
+            <div class="card">
                 <div class="card-image">
-                    <div class="img-responsive"></div>
+                    <img src="../images/Wavey-Fingerprint.svg" width=1000 class="img-responsive">
                 </div>
                 <div class="card-header">
                     <div class="card-title h5">Employee Registration Portal</div>
@@ -20,23 +27,8 @@
                             <label class="form-label" for="username">Username</label>
                         </div>
                         <div class="col-9 col-sm-12">
-                            <input required class="form-input" type="text" id="username" placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-3 col-sm-12">
-                            <label class="form-label" for="password">Password</label>
-                        </div>
-                        <div class="col-9 col-sm-12">
-                            <input required class="form-input" type="password" id="password" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-3 col-sm-12">
-                            <label class="form-label" for="password-confirmation">Confirm Password</label>
-                        </div>
-                        <div class="col-9 col-sm-12">
-                            <input required class="form-input" type="password" id="password-confirmation" placeholder="Password">
+                            <input required class="form-input" type="text" name="username" autocomplete="username"
+                                placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,7 +36,17 @@
                             <label class="form-label" for="email">Email</label>
                         </div>
                         <div class="col-9 col-sm-12">
-                            <input required class="form-input" type="Email" id="email" placeholder="Email">
+                            <input required class="form-input" type="email" name="email"
+                                autocomplete="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-3 col-sm-12">
+                            <label class="form-label" for="password">Password</label>
+                        </div>
+                        <div class="col-9 col-sm-12">
+                            <input required class="form-input" type="password" name="password"
+                                autocomplete="current-password" placeholder="Password">
                         </div>
                     </div>
                 </div>
@@ -54,6 +56,4 @@
             </div>
         </form>
     </div>
-    <script src="scripts/pass.js"></script>
-    <%- include('footer'); -%>
 </body>

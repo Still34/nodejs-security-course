@@ -1,35 +1,46 @@
-version: '3'
-
+version: "3"
 services:
-  web:
-    build: .
-    volumes:
-      - "./app:/src/app"
-    image: node:alpine
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      - MYSQL_DATABASE=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASSWORD=${DBPASSWORD}
-    networks:
-      default:
-      internal:
-  db:
-    image: mariadb
-    restart: always
-    networks:
-      internal:
-    volumes:
-      - .data/mysql:/var/lib/mysql
-    environment:
-      - MYSQL_DATABASE=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASSWORD=${DBPASSWORD}
-      - MYSQL_ROOT_PASSWORD=${DBPASSWORD}
+    web:
+        build: .
+        container_name: ${CONTAINER_WEB_NAME}
+        restart: always
+        volumes:
+            - "./app:/root/app"
+        # Dev
+        # command:
+            # sh -c "npm rebuild bcrypt --build-from-source && node --inspect-brk=0.0.0.0 app.js"
+        ports:
+            - "8888:8888"
+            # Dev - JS Inspect
+            # - "9229:9229"
+        environment:
+            - WEB_CONTAINER_NAME=${CONTAINER_WEB_NAME}
+            - DB_CONTAINER_NAME=${CONTAINER_DB_NAME}
+            - NJSPORT=8888
+            - MYSQL_DATABASE=${DBNAME}
+            - MYSQL_USER=${DBUSER}
+            - MYSQL_PASSWORD=${DBPASSWORD}
+        depends_on:
+            - db
+        networks:
+            default:
+            internal:
+    db:
+        image: mariadb
+        container_name: ${CONTAINER_DB_NAME}
+        restart: always
+        networks:
+            internal:
+        volumes:
+            - .data/mysql:/var/lib/mysql
+        environment:
+            - WEB_CONTAINER_NAME=${CONTAINER_WEB_NAME}
+            - DB_CONTAINER_NAME=${CONTAINER_DB_NAME}
+            - MYSQL_DATABASE=${DBNAME}
+            - MYSQL_USER=${DBUSER}
+            - MYSQL_PASSWORD=${DBPASSWORD}
+            - MYSQL_ROOT_PASSWORD=${DBPASSWORD}
 networks:
-  default:
-  internal:
-    internal: true
+    default:
+    internal:
+        internal: true
