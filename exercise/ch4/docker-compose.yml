@@ -4,8 +4,6 @@ services:
         build: .
         container_name: ${CONTAINER_WEB_NAME}
         restart: always
-        volumes:
-            - "./app:/root/app"
         # Dev
         # command:
             # sh -c "npm rebuild bcrypt --build-from-source && node --inspect-brk=0.0.0.0 app.js"
